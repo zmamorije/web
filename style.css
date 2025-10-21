@@ -211,7 +211,7 @@ img {
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 20;
+  z-index: 999;
   color: var(--header-txt);
   transition: var(--transition);
 }
