@@ -6,12 +6,7 @@
   <!-- HOME -->
   <url>
     <loc>https://zmamorije.hr/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/"/>
-  </url>
-
-  <url>
-    <loc>https://zmamorije.hr/hr/</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/"/>
   </url>
@@ -19,12 +14,7 @@
   <!-- ABOUT -->
   <url>
     <loc>https://zmamorije.hr/about</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/about"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/about"/>
-  </url>
-
-  <url>
-    <loc>https://zmamorije.hr/hr/about</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/about"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/about"/>
   </url>
@@ -32,12 +22,7 @@
   <!-- CONTACT -->
   <url>
     <loc>https://zmamorije.hr/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/contact"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/contact"/>
-  </url>
-
-  <url>
-    <loc>https://zmamorije.hr/hr/contact</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/contact"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/contact"/>
   </url>
@@ -45,53 +30,35 @@
   <!-- PROJECTS -->
   <url>
     <loc>https://zmamorije.hr/projects/wicked</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/wicked"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/wicked"/>
-  </url>
-  <url>
-    <loc>https://zmamorije.hr/projects/pumpkin</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/pumpkin"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/pumpkin"/>
-  </url>
-  <url>
-    <loc>https://zmamorije.hr/projects/kitty</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/kitty"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/kitty"/>
-  </url>
-  <url>
-    <loc>https://zmamorije.hr/projects/friends</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/friends"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/friends"/>
-  </url>
-  <url>
-    <loc>https://zmamorije.hr/projects/doorstep</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/doorstep"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/doorstep"/>
   </url>
 
-  <!-- HR PROJECTS -->
   <url>
-    <loc>https://zmamorije.hr/hr/projects/wicked</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/wicked"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/wicked"/>
-  </url>
-  <url>
-    <loc>https://zmamorije.hr/hr/projects/pumpkin</loc>
+    <loc>https://zmamorije.hr/projects/pumpkin</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/pumpkin"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/pumpkin"/>
   </url>
+
   <url>
-    <loc>https://zmamorije.hr/hr/projects/kitty</loc>
+    <loc>https://zmamorije.hr/projects/kitty</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/kitty"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/kitty"/>
   </url>
+
   <url>
-    <loc>https://zmamorije.hr/hr/projects/friends</loc>
+    <loc>https://zmamorije.hr/projects/friends</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/friends"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/friends"/>
   </url>
+
   <url>
-    <loc>https://zmamorije.hr/hr/projects/doorstep</loc>
+    <loc>https://zmamorije.hr/projects/doorstep</loc>
+    <lastmod>2025-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://zmamorije.hr/projects/doorstep"/>
     <xhtml:link rel="alternate" hreflang="hr" href="https://zmamorije.hr/hr/projekti/doorstep"/>
   </url>
