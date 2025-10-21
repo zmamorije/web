@@ -60,11 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* ---------- LIGHTBOX ----------  */
+/* ---------- LIGHTBOX ---------- */
 function initLightbox(selector) {
   const containers = document.querySelectorAll(selector);
   if (!containers.length) return;
 
+  // Kreiraj overlay ako ne postoji
   let overlay = document.querySelector(".lightbox-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
@@ -95,6 +96,7 @@ function initLightbox(selector) {
 
     document.body.appendChild(overlay);
 
+    // Zatvaranje overlaya
     closeBtn.addEventListener("click", e => {
       e.stopPropagation();
       overlay.classList.remove("active");
@@ -104,7 +106,7 @@ function initLightbox(selector) {
       if (e.target === overlay) overlay.classList.remove("active");
     });
 
-    // tipkovnica
+    // Tipkovnica
     document.addEventListener("keydown", e => {
       if (!overlay.classList.contains("active")) return;
       if (e.key === "Escape") overlay.classList.remove("active");
@@ -119,9 +121,8 @@ function initLightbox(selector) {
   const next = overlay.querySelector(".lightbox-nav button:last-child");
 
   containers.forEach(container => {
-    const links = Array.from(container.querySelectorAll(
-      "a[href='#'], a[href$='.jpg'], a[href$='.jpeg'], a[href$='.png'], a[href$='.webp'], a[href$='.gif']"
-    ));
+    // Sve slike u galeriji
+    const links = Array.from(container.querySelectorAll("a"));
     if (!links.length) return;
 
     let currentIndex = 0;
@@ -129,21 +130,28 @@ function initLightbox(selector) {
     const showImage = index => {
       currentIndex = index;
       const link = links[currentIndex];
-      const href = link.getAttribute("href");
       const imgEl = link.querySelector("img");
 
-      const fullSrc = (href && href !== "#") ? href : (imgEl ? imgEl.src : "");
+      // Ako href vodi na .jpg/.png/... koristi taj URL, inače koristi thumbnail src
+      const href = link.getAttribute("href");
+      const isImageLink = /\.(jpe?g|png|webp|gif)$/i.test(href);
+      const fullSrc = isImageLink ? href : (imgEl ? imgEl.src : href);
 
-      if (!fullSrc) return;
       img.src = fullSrc;
       caption.textContent = imgEl ? imgEl.alt || "" : "";
       overlay.classList.add("active");
     };
 
     links.forEach((link, i) => {
+      const href = link.getAttribute("href") || "";
+      const isImageLink = /\.(jpe?g|png|webp|gif)$/i.test(href);
+
       link.addEventListener("click", e => {
-        e.preventDefault();
-        showImage(i);
+        // Otvara lightbox samo ako je href="#" ili vodi direktno na sliku
+        if (href === "#" || isImageLink) {
+          e.preventDefault();
+          showImage(i);
+        }
       });
     });
 
@@ -165,6 +173,7 @@ function initLightbox(selector) {
 document.addEventListener("DOMContentLoaded", () => {
   initLightbox(".masonry, .project-images, [data-lightbox]");
 });
+
 
 
 /* ---------- ZAŠTITA SLIKA-- */
