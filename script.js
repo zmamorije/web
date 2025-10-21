@@ -183,20 +183,69 @@ document.addEventListener("contextmenu", function(e) {
   }
 });
 
-/* ---------- COOKIE BANNER DYNAMIC ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  // Provjeri postoji li već cookie consent
-  const choice = localStorage.getItem("cookie-consent");
-  if (choice) return; // Ako je već odlučeno, ne prikazuj banner
+  /* ---------- HELPER FUNKCIJE ---------- */
 
-  // Detekcija jezika prema URL-u ili <html lang="">
+  // 🔹 Učitavanje Analytics i Clarity
+  function enableOptionalCookies() {
+    // --- Google Analytics ---
+    const ga = document.createElement("script");
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-NSSCMXLXEV"; // ⬅️ zamijeni svojim ID-em
+    document.head.appendChild(ga);
+
+    ga.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-NSSCMXLXEV'); // ⬅️ isti ID
+    };
+
+    // --- Microsoft Clarity ---
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; // ⬅️ zamijeni svojim ID-em
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "XXXXXXXXXX");
+  }
+
+  // 🔹 Ako korisnik odbije, možeš obrisati postojeće kolačiće (opcionalno)
+  function disableOptionalCookies() {
+    document.cookie.split(";").forEach(cookie => {
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    });
+  }
+
+  // 🔹 Pohrana izbora
+  function setConsent(value) {
+    localStorage.setItem("cookie-consent", value);
+    banner.style.display = "none";
+
+    if (value === "all") {
+      enableOptionalCookies();
+    } else {
+      disableOptionalCookies();
+    }
+  }
+
+  /* ---------- PROVJERA POSTOJEĆEG IZBORA ---------- */
+  const choice = localStorage.getItem("cookie-consent");
+
+  if (choice === "all") {
+    enableOptionalCookies();
+    return; // već prihvatio sve → ne prikazuj banner
+  }
+
+  if (choice) return; // već odbio ili prihvatio samo nužne → ne prikazuj ponovno
+
+  /* ---------- DINAMIČKO UČITAVANJE BANNERA ---------- */
   const htmlLang = document.documentElement.lang || "en";
   const isCroatian = htmlLang.startsWith("hr") || window.location.pathname.startsWith("/hr");
-
-  // Odredi koji file da učita
   const cookieFile = isCroatian ? "/cookie-hr.html" : "/cookie.html";
 
-  // Učitaj odgovarajući cookie banner
   fetch(cookieFile)
     .then(res => res.text())
     .then(html => {
@@ -204,26 +253,17 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.innerHTML = html;
       document.body.appendChild(wrapper);
 
-      const banner = document.getElementById("cookieBanner");
+      banner = document.getElementById("cookieBanner");
       banner.style.display = "flex";
 
+      // Dugmad
       const acceptBtn = document.getElementById("acceptAll");
       const necessaryBtn = document.getElementById("essentialOnly");
       const declineBtn = document.getElementById("rejectAll");
 
-      function setConsent(value) {
-        localStorage.setItem("cookie-consent", value);
-        banner.style.display = "none";
-
-        if (value === "all") {
-          enableOptionalCookies();
-        } else {
-          disableOptionalCookies();
-        }
-      }
-
       acceptBtn?.addEventListener("click", () => setConsent("all"));
       necessaryBtn?.addEventListener("click", () => setConsent("necessary"));
       declineBtn?.addEventListener("click", () => setConsent("none"));
-    });
+    })
+    .catch(err => console.error("Greška pri učitavanju cookie bannera:", err));
 });
