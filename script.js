@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; // ⬅️ zamijeni svojim ID-em
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "XXXXXXXXXX");
+    })(window, document, "clarity", "script", "tu1hpko5gt");
   }
 
   // 🔹 Ako korisnik odbije, možeš obrisati postojeće kolačiće (opcionalno)
