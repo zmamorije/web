@@ -56,10 +56,21 @@
       })();
     </script>
 
-        <!-- Preconnect za vanjske resurse -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
-    <link rel="stylesheet" href="/style.css" />
+    <!-- ✅ Preconnect (ubrzava fontove, analitiku i clarity) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+
+    <!-- ✅ Non-blocking CSS (uklanja render-blocking) -->
+    <link
+      rel="preload"
+      href="/style.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/style.css" /></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
