@@ -10,7 +10,7 @@
   /*txt*/
   --header-txt: #333;
   --text-primary: #333;
-  --text-secondary: gray;
+  --text-secondary: rgb(54, 54, 54);
   --text-accent: #6b5dd3;
   --link-hover: #6b5dd3;
 
@@ -637,14 +637,14 @@ html.dark .theme-toggle .moon {
 
 .about-content-wrapper {
   display: flex;
-  align-items: flex-start;  /* poravnava vrh slike i teksta */
+  align-items: center;  /* poravnava vrh slike i teksta */
   gap: 2rem;               /* razmak između slike i biografije */
 }
 
 /* --- HERO SLIKA --- */
 .about-hero {
   flex: 0 0 250px;
-  border-radius: 55%;
+  border-radius: 50%;
   overflow: hidden;
   margin: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -652,11 +652,9 @@ html.dark .theme-toggle .moon {
 }
 
 .about-hero img {
-  max-width: 300px;       /* po želji, veličina slike */
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;         /* slika centrirana u odnosu na stranice */
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
@@ -761,50 +759,103 @@ html.dark .theme-toggle .moon {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 800px) {
+/* --- TABLET / MANJI LAPTOP (do 900px) --- */
+@media (max-width: 900px) {
   .about-page {
-    flex-direction: column;
+    padding: 30px 15px;
+  }
+
+  .about-content-wrapper {
+    gap: 1.5rem;
+  }
+
+  .about-content {
+    font-size: 0.95rem;
+  }
+
+  .about-hero {
+    flex: 0 0 220px;
+  }
+
+  .animals-container {
+    gap: 15px;
+  }
+
+  .contact-button {
+    font-size: 18px;
+    padding: 6px 14px;
+  }
+}
+
+/* --- TABLET U USPRAVNOM POLOŽAJU (do 768px) --- */
+@media (max-width: 768px) {
+  .about-content-wrapper {
+    flex-direction: column;     /* stack slika + tekst */
     align-items: center;
     text-align: center;
   }
 
   .about-hero {
-    margin: 0 auto 25px auto;
+    margin: 0 auto 20px auto;
+    max-width: 250px;
   }
 
   .about-content {
-    margin: 0;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .about-page h1 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .animals-container {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .animals-container .animal {
+    max-width: 180px;
+  }
+
+  .contact-link p {
     padding: 0 20px;
+  }
+}
+
+/* --- MOBITEL (do 480px) --- */
+@media (max-width: 480px) {
+  .about-page {
+    padding: 20px 10px;
+  }
+
+  .about-hero {
+    max-width: 200px;
+  }
+
+  .about-content {
+    font-size: 0.9rem;
+    padding: 0 10px;
   }
 
   .animals-container {
     flex-direction: column;
     align-items: center;
-  }
-}
-
-/* --- RESPONSIVE MOBILE (do 640px) --- */
-@media (max-width: 640px) {
-  .about-content-wrapper {
-    flex-direction: column;  /* tekst i slika jedan ispod drugog */
-    align-items: center;     /* centriraj blokove */
-    gap: 1.5rem;             /* razmak između teksta i slike */
+    gap: 12px;
   }
 
-  .about-content {
-    text-align: center;      /* tekst centriran na mobitelu */
-    padding: 0 10px;
-  }
-
-  .about-hero {
-    margin: 0 auto;          /* slika centrirana */
-    max-width: 250px;        /* po želji manja slika za mobitel */
+  .animals-container .animal {
+    max-width: 160px;
   }
 
   .about-page h1 {
-    text-align: center;      /* naslov centriran na mobitelu */
-    font-size: 1.8rem;       /* smanjena veličina naslova */
+    font-size: 1.6rem;
+  }
+
+  .contact-button {
+    font-size: 16px;
+    padding: 6px 12px;
   }
 }
 
