@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cookie-banner</title>
-    <meta name="description" content="Cookie banner implementation for a website.">
-</head>
-<body>
-      <!-- ---------- Cookie Banner ---------- -->
+    <meta
+      name="description"
+      content="Cookie banner implementation for a website."
+    />
+  </head>
+  <body>
+    <!-- ---------- Cookie Banner ---------- -->
     <div class="cookie-banner" id="cookieBanner">
-    <p>
-        This website uses cookies to enhance your browsing experience.
+      <p>
+        We use cookies to enhance your browsing experience and analyze website
+        traffic. By clicking "Accept all", you consent to the use of analytics
+        cookies. You can choose "Essential only" to allow only necessary
+        cookies.
         <a href="privacy.html" target="_blank">Learn more</a>
-    </p>
-    <div class="cookie-buttons">
-        <button id="acceptAll">Accept all</button>
-        <button id="rejectAll">Reject all</button>
-        <button id="essentialOnly">Essential only</button>
+      </p>
+      <div class="cookie-buttons">
+        <div class="top-buttons">
+          <button id="rejectAll">Reject all</button>
+          <button id="essentialOnly">Essentials</button>
         </div>
+        <button id="acceptAll" class="full-width">Accept all</button>
+      </div>
     </div>
-</body>
+  </body>
 </html>

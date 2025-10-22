@@ -985,10 +985,22 @@ html.dark .theme-toggle .moon {
 }
 
 .cookie-buttons {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* razmak između redova */
+}
+
+.top-buttons {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+}
+
+.top-buttons button {
+  flex: 1; /* jednaka širina */
+}
+
+.full-width {
+  width: 100%; /* zauzima cijelu širinu iznad dva gumba */
 }
 
 .cookie-buttons button {
@@ -1005,6 +1017,19 @@ html.dark .theme-toggle .moon {
 
 .cookie-buttons button:hover {
   background: var(--button-hover-bg, #574fe0);
+}
+
+@media (max-width: 480px) {
+  .top-buttons,
+  .full-width {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .top-buttons button,
+  .full-width {
+    width: 100%; /* svaki gumb zauzima cijeli red */
+  }
 }
 
 /* ---------- Privacy Page ---------- */
