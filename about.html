@@ -21,6 +21,17 @@
     })();
   </script>
   
+        <!-- Preconnect za vanjske resurse -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload kritične slike -->
+    <link rel="preload" as="image" href="/logo-light.png">
+    <link rel="preload" as="image" href="/logo-dark.png">
+
+  
     <link rel="stylesheet" href="/style.css" />
     
     <!-- Favicon -->
@@ -113,16 +124,16 @@
 
         <div class="animals-container">
           <figure class="animal">
-            <img src="/img/dog.jpg" alt="Iva Dukić's Dog Nara">
-            <figcaption>Dog</figcaption>
+            <img src="/img/about_me/nara.webp" alt="Iva Dukić's Dog Nara">
+            <figcaption>Nara</figcaption>
           </figure>
           <figure class="animal">
-            <img src="/img/horse.jpg" alt="Iva Dukić's Horse Atena">
-            <figcaption>Horse</figcaption>
+            <img src="/img/about_me/atena.webp" alt="Iva Dukić's Horse Atena">
+            <figcaption>Atena</figcaption>
           </figure>
           <figure class="animal">
-            <img src="/img/cat.jpg" alt="Iva Dukić's Cat Opi">
-            <figcaption>Cat</figcaption>
+            <img src="/img/about_me/opi.webp" alt="Iva Dukić's Cat Opi">
+            <figcaption>Opi</figcaption>
           </figure>
         
         <p>
@@ -160,6 +171,6 @@
     </div>
   </footer>
   
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

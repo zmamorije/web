@@ -56,6 +56,16 @@
       })();
     </script>
 
+        <!-- Preconnect za vanjske resurse -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload kritične slike -->
+    <link rel="preload" as="image" href="/logo-light.png">
+    <link rel="preload" as="image" href="/logo-dark.png">
+
     <link rel="stylesheet" href="/style.css" />
     
     <!-- Favicon -->
@@ -341,6 +351,6 @@
 
     <button id="back-to-top" title="Vrati na vrh">↑ To top</button>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

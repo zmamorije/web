@@ -5,6 +5,7 @@
   --bg: #f6f7fb;
   --header-bg: #ffffff;
   --card-bg: #ffffff;
+  --card-bg-hover: #f9f9f9;
 
   /*txt*/
   --header-txt: #333;
@@ -52,6 +53,7 @@ html.dark {
   --bg: #1f1e1e;
   --header-bg: #2a2a2a;
   --card-bg: #2a2a2a;
+  --card-bg-hover: #3a3a3a;
 
   --header-txt: #f2f2f2;
   --text-primary: #f2f2f2;
@@ -162,7 +164,7 @@ img {
   flex-direction: column;
   justify-content: center;
   width: 28px;
-  height: 22px;
+  height: 24px;
   cursor: pointer;
   z-index: 15;
 }
@@ -201,11 +203,11 @@ img {
 .theme-toggle {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
   overflow: hidden;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -221,8 +223,8 @@ img {
 }
 
 .theme-toggle .icon {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -825,11 +827,12 @@ html.dark .theme-toggle .moon {
 .contact-header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .contact-header p {
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text-secondary);
 }
 
 .contact-main {
@@ -841,7 +844,7 @@ html.dark .theme-toggle .moon {
 }
 
 .contact-left {
-  background: linear-gradient(135deg, #f9fafb 0%, #f3f5f6 100%);
+  background: var(--header-bg);
   border-radius: var(--radius);
   padding: 2.5rem 2rem;
   box-shadow: var(--shadow);
@@ -854,6 +857,7 @@ html.dark .theme-toggle .moon {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .contact-left h2::after {
@@ -877,7 +881,7 @@ html.dark .theme-toggle .moon {
 .services-list li {
   margin-bottom: 1.4rem;
   font-size: 1.05rem;
-  color: var(--text);
+  color: var(--text-secondary);
 }
 
 .services-list li strong {
@@ -895,7 +899,7 @@ html.dark .theme-toggle .moon {
   align-items: center;
   gap: 1rem;
   padding: 1.2rem;
-  background: #f9f9f9;
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-decoration: none;
@@ -904,7 +908,7 @@ html.dark .theme-toggle .moon {
 }
 
 .card:hover {
-  background: #fff;
+  background: var(--card-bg-hover);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transform: translateY(-3px);
 }
@@ -925,6 +929,7 @@ html.dark .theme-toggle .moon {
 .contact-footer h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 /* === Animacija === */
 @keyframes fadeUp {
