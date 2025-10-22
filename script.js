@@ -1,27 +1,27 @@
 /* ---------- THEME TOGGLE ---------- */
-const toggleBtn = document.getElementById('theme-toggle');
-    const htmlEl = document.documentElement;
-    const logo = document.getElementById('logo');
+const toggleBtn = document.getElementById("theme-toggle");
+const htmlEl = document.documentElement;
+const logo = document.getElementById("logo");
 
-    // Učitaj spremljenu temu ako postoji
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      htmlEl.className = savedTheme;
-      logo.src = savedTheme === 'dark' ? '/logo-dark.png' : '/logo-light.png';
-    }
+// Učitaj spremljenu temu ako postoji
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  htmlEl.className = savedTheme;
+  logo.src = savedTheme === "dark" ? "/logo-dark.png" : "/logo-light.png";
+}
 
-    // Klik event za promjenu teme i loga
-    toggleBtn.addEventListener('click', () => {
-      if (htmlEl.classList.contains('dark')) {
-        htmlEl.classList.replace('dark', 'light');
-        localStorage.setItem('theme', 'light');
-        logo.src = '/logo-light.png';
-      } else {
-        htmlEl.classList.replace('light', 'dark');
-        localStorage.setItem('theme', 'dark');
-        logo.src = '/logo-dark.png';
-      }
-    });
+// Klik event za promjenu teme i loga
+toggleBtn.addEventListener("click", () => {
+  if (htmlEl.classList.contains("dark")) {
+    htmlEl.classList.replace("dark", "light");
+    localStorage.setItem("theme", "light");
+    logo.src = "/logo-light.png";
+  } else {
+    htmlEl.classList.replace("light", "dark");
+    localStorage.setItem("theme", "dark");
+    logo.src = "/logo-dark.png";
+  }
+});
 
 /* ---------- BACK TO TOP ---------- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,18 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 /* ---------- MASONRY ANIMATION ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".masonry a");
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
   links.forEach((link, i) => {
     link.style.setProperty("--i", i);
@@ -97,17 +99,17 @@ function initLightbox(selector) {
     document.body.appendChild(overlay);
 
     // Zatvaranje overlaya
-    closeBtn.addEventListener("click", e => {
+    closeBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       overlay.classList.remove("active");
     });
 
-    overlay.addEventListener("click", e => {
+    overlay.addEventListener("click", (e) => {
       if (e.target === overlay) overlay.classList.remove("active");
     });
 
     // Tipkovnica
-    document.addEventListener("keydown", e => {
+    document.addEventListener("keydown", (e) => {
       if (!overlay.classList.contains("active")) return;
       if (e.key === "Escape") overlay.classList.remove("active");
       if (e.key === "ArrowLeft") prev.click();
@@ -120,14 +122,14 @@ function initLightbox(selector) {
   const prev = overlay.querySelector(".lightbox-nav button:first-child");
   const next = overlay.querySelector(".lightbox-nav button:last-child");
 
-  containers.forEach(container => {
+  containers.forEach((container) => {
     // Sve slike u galeriji
     const links = Array.from(container.querySelectorAll("a"));
     if (!links.length) return;
 
     let currentIndex = 0;
 
-    const showImage = index => {
+    const showImage = (index) => {
       currentIndex = index;
       const link = links[currentIndex];
       const imgEl = link.querySelector("img");
@@ -135,7 +137,7 @@ function initLightbox(selector) {
       // Ako href vodi na .jpg/.png/... koristi taj URL, inače koristi thumbnail src
       const href = link.getAttribute("href");
       const isImageLink = /\.(jpe?g|png|webp|gif)$/i.test(href);
-      const fullSrc = isImageLink ? href : (imgEl ? imgEl.src : href);
+      const fullSrc = isImageLink ? href : imgEl ? imgEl.src : href;
 
       img.src = fullSrc;
       caption.textContent = imgEl ? imgEl.alt || "" : "";
@@ -146,7 +148,7 @@ function initLightbox(selector) {
       const href = link.getAttribute("href") || "";
       const isImageLink = /\.(jpe?g|png|webp|gif)$/i.test(href);
 
-      link.addEventListener("click", e => {
+      link.addEventListener("click", (e) => {
         // Otvara lightbox samo ako je href="#" ili vodi direktno na sliku
         if (href === "#" || isImageLink) {
           e.preventDefault();
@@ -155,13 +157,13 @@ function initLightbox(selector) {
       });
     });
 
-    prev.addEventListener("click", e => {
+    prev.addEventListener("click", (e) => {
       e.stopPropagation();
       currentIndex = (currentIndex - 1 + links.length) % links.length;
       showImage(currentIndex);
     });
 
-    next.addEventListener("click", e => {
+    next.addEventListener("click", (e) => {
       e.stopPropagation();
       currentIndex = (currentIndex + 1) % links.length;
       showImage(currentIndex);
@@ -174,10 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initLightbox(".masonry, .project-images, [data-lightbox]");
 });
 
-
-
 /* ---------- ZAŠTITA SLIKA-- */
-document.addEventListener("contextmenu", function(e) {
+document.addEventListener("contextmenu", function (e) {
   if (e.target.tagName === "IMG") {
     e.preventDefault();
   }
@@ -191,28 +191,37 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Google Analytics ---
     const ga = document.createElement("script");
     ga.async = true;
-    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-NSSCMXLXEV"; // ⬅️ zamijeni svojim ID-em
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-NSSCMXLXEV";
     document.head.appendChild(ga);
 
     ga.onload = () => {
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-NSSCMXLXEV'); // ⬅️ isti ID
+      gtag("js", new Date());
+      gtag("config", "G-NSSCMXLXEV");
     };
 
     // --- Microsoft Clarity ---
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; // ⬅️ zamijeni svojim ID-em
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "tu1hpko5gt");
   }
 
   // 🔹 Ako korisnik odbije, možeš obrisati postojeće kolačiće (opcionalno)
   function disableOptionalCookies() {
-    document.cookie.split(";").forEach(cookie => {
+    document.cookie.split(";").forEach((cookie) => {
       const eqPos = cookie.indexOf("=");
       const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
       document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
@@ -243,12 +252,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- DINAMIČKO UČITAVANJE BANNERA ---------- */
   const htmlLang = document.documentElement.lang || "en";
-  const isCroatian = htmlLang.startsWith("hr") || window.location.pathname.startsWith("/hr");
+  const isCroatian =
+    htmlLang.startsWith("hr") || window.location.pathname.startsWith("/hr");
   const cookieFile = isCroatian ? "/cookie-hr.html" : "/cookie.html";
 
   fetch(cookieFile)
-    .then(res => res.text())
-    .then(html => {
+    .then((res) => res.text())
+    .then((html) => {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = html;
       document.body.appendChild(wrapper);
@@ -265,5 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
       necessaryBtn?.addEventListener("click", () => setConsent("necessary"));
       declineBtn?.addEventListener("click", () => setConsent("none"));
     })
-    .catch(err => console.error("Greška pri učitavanju cookie bannera:", err));
+    .catch((err) =>
+      console.error("Greška pri učitavanju cookie bannera:", err)
+    );
 });
